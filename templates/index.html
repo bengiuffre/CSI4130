@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Resume Analyzer</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="resume_text">Paste Resume Text:</label>
+                <textarea id="resume_text" name="resume_text" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="job_description">Paste Job Description:</label>
+                <textarea id="job_description" name="job_description" required></textarea>
+            </div>
+
+            <button type="submit">Analyze</button>
+        </form>
+
+        <div class="feedback">
+            <h2>Feedback</h2>
+            <pre>{{ feedback }}</pre>
+        </div>
+
+        {% if resume_output %}
+        <div class="resume-output">
+            <h2>Recreated Resume</h2>
+            <pre>{{ resume_output }}</pre>
+            <form method="POST" action="/download">
+                <input type="hidden" name="resume_output" value="{{ resume_output }}">
+                <button type="submit">Download Resume</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Auto-expand job description box
+        const jd = document.getElementById('job_description');
+        jd.addEventListener('input', () => {
+            jd.style.height = 'auto';
+            jd.style.height = jd.scrollHeight + 'px';
+        });
+    </script>
+</body>
+</html>
