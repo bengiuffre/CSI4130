@@ -54,8 +54,8 @@ SETUP INSTRUCTIONS
 ------------------------------------------------------------
 USAGE
 ------------------------------------------------------------
-- Paste your resume text into the large textarea.
-- Paste the job description into the smaller textarea.
+- Paste your resume text into the large text area.
+- Paste the job description into the smaller text area.
 - Click Analyze to receive feedback and a rewritten resume.
 - Scroll through feedback if it is long.
 
